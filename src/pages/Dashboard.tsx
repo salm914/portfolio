@@ -11,11 +11,11 @@ import { experienceData, educationData, projectsData } from '../data/portfolio-d
 const Dashboard = () => {
 
     return (
-        <div className="flex pt-4">
-        <div className="w-80 sticky top-0 h-screen">
+        <div className="md:flex lg:flex xl:flex 2xl:flex pt-4">
+        <div className="md:sticky lg:sticky xl:sticky 2xl:sticky top-0 text-center md:h-screen">
             <Profile />
         </div>
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto p-2">
             <Personal_details />
 
             <h2 className="mt-4 text-white text-2xl font-bold mb-3 mt-10 flex items-center gap-2">
