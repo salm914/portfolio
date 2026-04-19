@@ -7,7 +7,7 @@ const downloadCV = () => {
 }
 const Profile = () => {
    return (
-  <div className="min-h-screen flex items-center justify-center">
+  <div className="flex items-center ">
     
     <div className="bg-[#0d0d0d] p-6 rounded-2xl w-80 text-center shadow-xl border border-gray-800">
 
