@@ -12,8 +12,6 @@ const Contact = () => {
     phone,
     email,
     location,
-    loading,
-    error
 } = useSelector((state:any)=> state.contact)
 
 

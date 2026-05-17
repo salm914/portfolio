@@ -9,9 +9,7 @@ const Technologies = () => {
   },[])
 
   const {
-    technology,
-    loader,
-    error,
+    technology
 } = useSelector((state:any)=>state.technologies)
 
 

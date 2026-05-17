@@ -1,12 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { experience } from '../features/experience_Slice'
-interface ExperienceProps {
-  role: string;
-  company: string;
-  duration: string;
-  description: string[];
-}
+
 
 const Experience = () => {
 const dispatch = useDispatch<any>()
@@ -16,9 +11,7 @@ useEffect(()=>{
 },[]);
 
   const {
-    experince_details,
-    loader,
-    error,} = useSelector((state:any) => state.experiencedata)
+    experince_details } = useSelector((state:any) => state.experiencedata)
 
     console.log(experince_details)
   return (
