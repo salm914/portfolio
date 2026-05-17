@@ -6,7 +6,6 @@ import Contact from '../Components/contact';
 import Technologies from '../Components/Technologies';
 import Projects from '../Components/Projects';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { experienceData, educationData, projectsData } from '../data/portfolio-data';
 
 const Dashboard = () => {
 
@@ -21,23 +20,15 @@ const Dashboard = () => {
             <h2 className="mt-4 text-white text-2xl font-bold mb-3 mt-10 flex items-center gap-2">
                 <FontAwesomeIcon icon="briefcase" className='text-green-500 mr-2 text-xl' /> Experience
             </h2>
-            {experienceData.map((item, index) => (
-                <Experience key={index} {...item} />
-            ))}
-
+                <Experience />
             <h2 className="mt-4 text-white text-2xl font-bold mb-3 flex items-center gap-2">
                 <FontAwesomeIcon icon="folder" className='text-green-500 mr-2 text-xl' /> Projects
             </h2>
-            {projectsData.map((item, index) => (
-                <Projects key={index} {...item} />
-            )) }
-
+                <Projects />
              <h2 className="mt-4 text-white text-2xl font-bold mb-3 flex items-center gap-2">
                 <FontAwesomeIcon icon="graduation-cap" className='text-green-500 mr-2 text-xl' /> Education
             </h2>
-            {educationData.map((item, index) => (
-                <Education key={index} {...item} />
-            )) }
+                <Education />
 
             <h2 className="mt-4 text-white text-2xl font-bold mb-3 flex items-center gap-2">
                 <FontAwesomeIcon icon="cogs" className='text-green-500 mr-2 text-xl' /> Technologies

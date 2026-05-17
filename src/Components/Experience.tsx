@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { experience } from '../features/experience_Slice'
 interface ExperienceProps {
   role: string;
   company: string;
@@ -5,20 +8,34 @@ interface ExperienceProps {
   description: string[];
 }
 
-const Experience = ({ role, company, duration, description }: ExperienceProps) => {
+const Experience = () => {
+const dispatch = useDispatch<any>()
+useEffect(()=>{
+  dispatch(experience())
+  console.log('called')
+},[]);
+
+  const {
+    experince_details,
+    loader,
+    error,} = useSelector((state:any) => state.experiencedata)
+
+    console.log(experince_details)
   return (
-    <div className="bg-[#0d0d0d] border border-gray-800 rounded-xl p-5 mb-4">
+    <>
+    {experince_details.map((item: any, index: number) => ( 
+      <div  key={index} className="bg-[#0d0d0d] border border-gray-800 rounded-xl p-5 mb-4">
       
       {/* Top Section */}
       <div className="flex justify-between items-start">
         
         <div>
-          <h3 className="text-white text-lg font-semibold">{role}</h3>
-          <p className="text-gray-400 text-sm mt-1">{company}</p>
+          <h3 className="text-white text-lg font-semibold">{item.designation}</h3>
+          <p className="text-gray-400 text-sm mt-1">{item.company}</p>
         </div>
 
         <div className="bg-gray-800 text-gray-300 text-sm px-3 py-1 rounded-lg">
-          {duration}
+          {item.startDate } - {item. endDate}
         </div>
 
       </div>
@@ -28,13 +45,17 @@ const Experience = ({ role, company, duration, description }: ExperienceProps) =
 
       {/* Description */}
       <ul className="text-gray-400 text-sm leading-relaxed"  style={{ listStyleType: 'circle' }}>
-       {description.map((line, index) => (
+       {item.responsibilities.map((line:any, index:number) => (
         <li key={index}>
           {line}
         </li>
         ))}
       </ul>
     </div>
+    ))}
+    </>
   );
+
+  
 };
 export default Experience;

@@ -1,26 +1,45 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react'
+import { fetchEducation } from '../features/education_detailSlice'
 interface EducationProps {
   degree: string;
   college: string;
   duration: string;
   description: string;
 }
+//fetchEducation
+const Education = () => {
 
-const Education = ({ degree, college, duration, description }: EducationProps ) => {
+  const  dispatch = useDispatch<any>();
+  useEffect(()=>{
+    dispatch(fetchEducation())
+  },[])
+
+  const {
+    education,
+    loader,
+    error,
+} = useSelector((state:any)=> state.education)
+
+
+
   return (
-    <div className="bg-[#0d0d0d] border border-gray-800 rounded-xl p-5 mb-4">
+    <>
+    {education.map((item:any,  index:number)=>(
+
+    <div key={index} className="bg-[#0d0d0d] border border-gray-800 rounded-xl p-5 mb-4">
       
       {/* Top Section */}
       <div className="flex justify-between items-start">
         
         <div>
-          <h3 className="text-white text-lg font-semibold">{degree}</h3>
-          <p className="text-gray-400 text-sm mt-1">{college}</p>
+          <h3 className="text-white text-lg font-semibold">{item.degree}</h3>
+          <p className="text-gray-400 text-sm mt-1">{item.university}</p>
         </div>
 
         <div className="bg-gray-800 text-gray-300 text-sm px-3 py-1 rounded-lg">
-          {duration}
+          {item.startYear} - {item.endYear}
         </div>
-
       </div>
 
       {/* Divider */}
@@ -28,9 +47,11 @@ const Education = ({ degree, college, duration, description }: EducationProps ) 
 
       {/* Description */}
       <p className="text-gray-400 text-sm leading-relaxed">
-        {description}
+        {item.details}
       </p>
     </div>
+    ))}
+    </>
   );
 
 };
