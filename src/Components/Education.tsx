@@ -1,12 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react'
 import { fetchEducation } from '../features/education_detailSlice'
-interface EducationProps {
-  degree: string;
-  college: string;
-  duration: string;
-  description: string;
-}
+
 //fetchEducation
 const Education = () => {
 
@@ -17,8 +12,6 @@ const Education = () => {
 
   const {
     education,
-    loader,
-    error,
 } = useSelector((state:any)=> state.education)
 
 

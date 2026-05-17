@@ -1,11 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect } from 'react'
 import { projects_details } from '../features/projects_detailSlice'
-interface ProjectsProps {
-  title: string;
-  technology: string;
-  description: string;
-}
+
 
 const Projects = () => {
 const dispatch = useDispatch<any>()
@@ -14,9 +10,7 @@ const dispatch = useDispatch<any>()
   },[])
 
   const {
-    projects,
-    loader,
-    error
+    projects
 } = useSelector((state:any)=>state.projects)
 
   return (
