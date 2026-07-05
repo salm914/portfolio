@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react'
 import { fetchEducation } from '../features/education_detailSlice'
-
+import Loader from '../Components/loader'
 //fetchEducation
 const Education = () => {
 
@@ -11,10 +11,14 @@ const Education = () => {
   },[])
 
   const {
-    education,
+    education,loader
 } = useSelector((state:any)=> state.education)
 
-
+if (loader) {
+        return <>      
+          <Loader width="100%" height="200px" borderRadius="12px" />
+        </>
+      }
 
   return (
     <>

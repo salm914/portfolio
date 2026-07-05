@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect } from 'react'
 import { projects_details } from '../features/projects_detailSlice'
-
+import Loader from '../Components/loader'
 
 const Projects = () => {
 const dispatch = useDispatch<any>()
@@ -10,9 +10,13 @@ const dispatch = useDispatch<any>()
   },[])
 
   const {
-    projects
+    projects,loader
 } = useSelector((state:any)=>state.projects)
-
+if (loader) {
+        return <>      
+          <Loader width="100%" height="200px" borderRadius="12px" />
+        </>
+      }
   return (
     <>
     {projects.map((item:any , index:number )=>(

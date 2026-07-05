@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 import { fetchPersonalInfo } from '../features/personal_infoSlice'
-
+import Loader from '../Components/loader'
 
 
 const Personal_details = () => {
@@ -26,10 +26,13 @@ const Personal_details = () => {
       );
 
       if (loading) {
-        return <h1>Loading...</h1>;
+        return <>      
+          <Loader width="50%" height="200px" borderRadius="12px" />
+        </>
       }
       
     return(
+      
     <div className="pt-5">
         <h1 className="font-extra-large">I'm {name}</h1>
         <span className="font-extra-large text-green-500">{designation}</span>

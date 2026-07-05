@@ -1,0 +1,88 @@
+.cursor {
+    display: inline-block;
+    margin-left: 2px;
+    color: #22c55e;
+    font-family: monospace;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.terminal {
+    display: flex;
+    flex-direction: column;
+    color: #22c55e;
+    font-family: "JetBrains Mono", monospace;
+    text-shadow: 0 0 6px rgba(34, 197, 94, 0.35);
+
+    /* Terminal fade in */
+    opacity: 0;
+    transform: translateY(15px);
+    animation: terminalAppear 0.5s ease forwards;
+}
+
+@keyframes terminalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.line {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: showLine 0.6s ease-out forwards;
+}
+
+.terminal-lines .line:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.terminal-lines .line:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.terminal-lines .line:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.terminal-lines .line:nth-child(4) {
+    animation-delay: 1.4s;
+}
+
+.terminal-lines .line:nth-child(5) {
+    animation-delay: 1.8s;
+}
+
+.terminal-lines .line:nth-child(6) {
+    animation-delay: 2.2s;
+}
+
+.terminal-lines .line:nth-child(7) {
+    animation-delay: 2.6s;
+}
+
+.terminal-lines .line:nth-child(8) {
+    animation-delay: 3s;
+}
+
+@keyframes showLine {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
