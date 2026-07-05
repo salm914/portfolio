@@ -1,4 +1,3 @@
-import React from "react";
 import "../assets/IntroLoading.css";
 
 const Loading = () => {
