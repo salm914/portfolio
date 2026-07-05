@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { technologiesThunk } from '../features/technologies_detailSlice'
+import Loader from '../Components/loader'
 const Technologies = () => {
   const dispatch = useDispatch<any>();
 
@@ -9,8 +10,13 @@ const Technologies = () => {
   },[])
 
   const {
-    technology
+    technology,loader
 } = useSelector((state:any)=>state.technologies)
+if (loader) {
+        return <>      
+          <Loader width="100%" height="200px" borderRadius="12px" />
+        </>
+      }
 
 
   return (

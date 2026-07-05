@@ -1,0 +1,52 @@
+.cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+    color: #22c55e;
+    font-family: monospace;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+    
+}
+.terminal {
+  display: flex;
+  flex-direction: column;
+  color: #22c55e;
+  font-family: monospace;
+}
+
+.line {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: showLine 0.7s forwards;
+}
+
+.line:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.line:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.line:nth-child(3) {
+  animation-delay: 1.0s;
+}
+
+.line:nth-child(4) {
+  animation-delay: 1.4s;
+}
+
+.line:nth-child(5) {
+  animation-delay: 1.9s;
+}
+
+@keyframes showLine {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

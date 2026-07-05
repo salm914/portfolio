@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { contactInfo } from '../features/contact_detailSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import Loader from '../Components/loader'
 const Contact = () => {
   const dispatch = useDispatch<any>()
   useEffect(()=>{
@@ -12,9 +13,14 @@ const Contact = () => {
     phone,
     email,
     location,
+    loader
 } = useSelector((state:any)=> state.contact)
 
-
+if (loader) {
+        return <>      
+          <Loader width="50%" height="200px" borderRadius="12px" />
+        </>
+      }
   return (
     <div className="w-full lg:w-2/4 xl:w-2/4 2xl:w-2/4 bg-[#0d0d0d] border border-gray-800 rounded-xl p-5 mb-4">
       <div className="grid grid-cols-1 gap-4">

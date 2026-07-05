@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { experience } from '../features/experience_Slice'
-
+import Loader from '../Components/loader'
 
 const Experience = () => {
 const dispatch = useDispatch<any>()
@@ -11,9 +11,12 @@ useEffect(()=>{
 },[]);
 
   const {
-    experince_details } = useSelector((state:any) => state.experiencedata)
-
-    console.log(experince_details)
+    experince_details,loader } = useSelector((state:any) => state.experiencedata)
+    if (loader) {
+        return <>      
+          <Loader width="100%" height="200px" borderRadius="12px" />
+        </>
+      }
   return (
     <>
     {experince_details.map((item: any, index: number) => ( 
